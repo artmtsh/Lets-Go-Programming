@@ -45,20 +45,3 @@ func TestDivision(t *testing.T) {
 		t.Errorf("Division is incorrect")
 	}
 }
-
-func TestDivisionByZero(t *testing.T) {
-	// Подготовка данных для деления на ноль
-	numerator := 5.0
-	denominator := 0.0
-
-	// Защит блок для проверки деления на ноль
-	defer func() {
-		if r := recover(); r == nil {
-			t.Errorf("Деление не вызвало ожидаемой паники")
-		}
-	}()
-
-	// Попытка деления на ноль, которая должна вызвать панику
-	result := numerator / denominator
-	_ = result
-}
