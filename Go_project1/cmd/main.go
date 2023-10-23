@@ -31,5 +31,9 @@ func main() {
 		fmt.Println("Некорректное число. Пожалуйста, введите числовое значение.")
 		return
 	}
-	fmt.Printf("Результат %.2f %s %.2f = %.2f", num1, operation, num2, myCalc.Calculation(float32(num1), operation, float32(num2)))
+	if num2 == 0 && operation == "/" {
+		fmt.Println("Деление на ноль недопустимо.")
+	} else {
+		fmt.Printf("Результат %.2f %s %.2f = %.2f", num1, operation, num2, myCalc.Calculation(float32(num1), operation, float32(num2)))
+	}
 }
