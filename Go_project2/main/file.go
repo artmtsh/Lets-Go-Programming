@@ -1,21 +1,27 @@
 package main
 
+import "fmt"
+
 func findKthLargest(nums []int, k int) int {
 	if k < 1 || k > len(nums) {
 		return -1
 	}
-	maxVals := make([]int, k)
-	for _, v := range nums {
-		for i := 0; i < k; i++ {
-			if v > maxVals[i] {
-				for j := k - 1; j > i; j-- {
-					maxVals[j] = maxVals[j-1]
-				}
-				maxVals[i] = v
-				break
+	for i := 1; i < k; i++ {
+		maxVal := nums[i]
+		maxIdx := i
+		for j := i + 1; j < len(nums); j++ {
+			if nums[j] > maxVal {
+				maxVal = nums[j]
+				maxIdx = j
 			}
 		}
+		nums[i], nums[maxIdx] = nums[maxIdx], nums[i]
 	}
+	return nums[k-1]
+}
 
-	return maxVals[k-1]
+func main() {
+	nums := []int{4, 3, 6, 4, 1}
+	k := 3
+	fmt.Println(findKthLargest(nums, k))
 }
