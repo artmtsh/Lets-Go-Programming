@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func findKthLargest(nums []int, k int) int {
 	if k < 1 || k > len(nums) {
 		return -1
@@ -18,10 +16,4 @@ func findKthLargest(nums []int, k int) int {
 		nums[i], nums[maxIdx] = nums[maxIdx], nums[i]
 	}
 	return nums[k-1]
-}
-
-func main() {
-	nums := []int{4, 3, 6, 4, 1}
-	k := 3
-	fmt.Println(findKthLargest(nums, k))
 }
