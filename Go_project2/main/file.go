@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"sort"
 )
 
@@ -29,9 +28,4 @@ func findKthLargest(nums []int, k int) int {
 
 	return uniqueSlice[k-1]
 	//add
-}
-func main() {
-	nums := []int{1, 2, 3, 4, 5, 6}
-	var k = 2
-	fmt.Println(findKthLargest(nums, k))
 }
