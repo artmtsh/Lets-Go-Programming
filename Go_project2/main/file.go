@@ -1,14 +1,17 @@
 package main
 
 import (
+	"fmt"
 	"sort"
 )
 
 func findKthLargest(nums []int, k int) int {
 	sort.Ints(nums)
-	for i, j := 0, len(nums)-1; i < j; i, j = i+1, j-1 {
-		nums[i], nums[j] = nums[j], nums[i]
-	}
-	return nums[k-1]
+	return nums[len(nums)-k]
 	//add
+}
+
+func main() {
+	nums := []int{3, 2, 3, 1, 2, 4, 5, 5, 6}
+	fmt.Println(findKthLargest(nums, 4))
 }
