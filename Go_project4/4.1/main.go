@@ -1,5 +1,6 @@
 package main
 
+// GOSSAFUNC=main go tool compile ./main.go > ssa.html
 func main() {
 	a := 1
 	b := 2

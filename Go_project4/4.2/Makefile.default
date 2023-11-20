@@ -1,0 +1,12 @@
+TARGET=main_default
+SOURCES=$(wildcard *.go)
+GO=go
+GOFLAGS=-v
+
+all: $(TARGET)
+
+$(TARGET): $(SOURCES)
+	$(GO) build $(GOFLAGS) -o $(TARGET)
+
+clean:
+	rm -f $(TARGET)

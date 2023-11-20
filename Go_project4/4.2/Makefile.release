@@ -1,0 +1,12 @@
+TARGET=main_pro
+SOURCES=$(wildcard *.go)
+GO=go
+GOFLAGS=-v -tags=pro
+
+all: $(TARGET)
+
+$(TARGET): $(SOURCES)
+	$(GO) build $(GOFLAGS) -o $(TARGET)
+
+clean:
+	rm -f $(TARGET)
